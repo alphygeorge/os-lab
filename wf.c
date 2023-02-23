@@ -1,0 +1,5 @@
+#include<stdio.h> 
+int main()
+ { int n,m,i,j,pos,swap; printf ("enter the number of process"); scanf("%d",&n); printf ("enter the number of blocks"); scanf("%d",&m); int p[n],b[m],allocation[n],a[m],c[m],d=0;; for(i = 0; i < n; i++) { allocation[i] = -1; } for(i=0;i<n;i++) { printf("Process %d",i); printf("enter the process size"); scanf("%d",&p[i]); } for(i=0;i<m;i++) { printf("Block %d",i); printf("enter the Block size"); scanf("%d",&b[i]); } //sorting for(i = 0; i < m- 1; i++) { pos=i; for(j = i + 1; j < m; j++) { if(b[pos] > b[j]) pos=j; } if(pos != i) { swap=b[i]; b[i]=b[pos]; b[pos]=swap; } } for(i = m-1; i >=0; i--) { c[d]=b[i]; d=d+1; }
+for (i = 0; i < n; i++) { for (j = 0; j < m; j++) { if ( p[i]<=c[j]) { allocation[i] = j; a[i]=c[j]; c[j] = c[j]-p[i]; break; } } } printf("\nProcess No.\tProcess Size\tBlock size.\n"); for (int i = 0; i < n; i++) { printf(" %d\t\t\t", i); printf("%d\t\t", p[i]); if (allocation[i] != -1) { printf("%d \t",a[i]); //printf("%d", allocation[i ]); } else { printf("Not Allocated"); } printf("\n"); } }
+
